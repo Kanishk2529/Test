@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Shopping Cart</title>
+<style>
+    body {
+    font-family: sans-serif;
+    margin: 20px;
+}
+.container {
+    display: flex;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.cart {
+    flex: 2;
+    padding-right: 20px;
+}
+.summary {
+    flex: 1;
+    border: 1px solid #ddd;
+    padding: 20px;
+}
+.item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+.item img {
+    width: 80px;
+    height: 80px;
+    margin-right: 10px;
+    object-fit: cover;
+}
+.details {
+    flex-grow: 1;
+}
+.quantity-controls {
+    display: flex;
+    align-items: center;
+}
+.quantity-controls button {
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+.price {
+    margin-left: auto;
+}
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="cart">
+            <h2>Shopping Cart</h2>
+            <p>3 Items</p>
+            <div class="item">
+                <img src=".jpg" alt="Fifa 19">
+                <div class="details">
+                    <p><strong>Fifa 19</strong></p>
+                    <p>PS4</p>
+                    <a href="#" class="remove-link">Remove</a>
+                </div>
+                <div class="quantity-controls">
+                    <button>-</button>
+                    <span>2</span>
+                    <button>+</button>
+                </div>
+                <p class="price">£88.00</p>
+            </div>
+            <div class="item">
+                <img src=".jpg" alt="Glacier White 500GB">
+                <div class="details">
+                    <p><strong>Glacier White 500GB</strong></p>
+                    <p>PS4</p>
+                    <a href="#" class="remove-link">Remove</a>
+                </div>
+                <div class="quantity-controls">
+                    <button>-</button>
+                    <span>1</span>
+                    <button>+</button>
+                </div>
+                <p class="price">£249.99</p>
+            </div>
+            <div class="item">
+                <img src=".jpg" alt="Platinum Headset">
+                <div class="details">
+                    <p><strong>Platinum Headset</strong></p>
+                    <p>PS4</p>
+                    <a href="#" class="remove-link">Remove</a>
+                </div>
+                <div class="quantity-controls">
+                    <button>-</button>
+                    <span>1</span>
+                    <button>+</button>
+                </div>
+                <p class="price">£119.99</p>
+            </div>
+            <a href="#" style="display: block; margin-top: 10px; color: #6c37c9; text-decoration: none;">← Continue Shopping</a>
+        </div>
+        <div class="summary">
+            <h2>Order Summary</h2>
+            <div class="order-item">
+                <span>Items 3</span>
+                <span>£457.98</span>
+            </div>
+            <div>
+                <span>Shipping</span>
+                <select>
+                    <option>Standard Delivery - £5.00</option>
+                </select>
+            </div>
+            <div class="promo">
+                <input type="text" placeholder="Enter your code">
+                <button>APPLY</button>
+            </div>
+            <hr>
+            <div class="order-item">
+                <strong>TOTAL COST</strong>
+                <strong>£462.98</strong>
+            </div>
+            <button class="checkout-button">CHECKOUT</button>
+        </div>
+    </div>
+</body>
+</html>

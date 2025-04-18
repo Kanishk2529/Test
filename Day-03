@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Folio - UI & UX Designer</title>
+    <style>
+      body {
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+            background-color: lightpink;
+           
+        }
+
+        .header {
+            background-color: lightblue;
+            padding: 40px 20px;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: red;
+        }
+        .logo span{
+            color:green;
+        }
+
+        .navigation ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        .navigation li {
+            margin-left: 20px;
+        }
+
+        .navigation a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .hero {
+            padding: 80px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-text {
+            max-width: 50%;
+            font-size:x-large;
+        }
+        .hero-text span{
+            color:red;
+        }
+        .hero-text button{
+            color:red;
+        }
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px; 
+        }
+        .services {
+            background-color: #fff;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .services span{
+            color:red;
+        }
+        .services-grid {
+            max-width: 600px;
+            margin: 20px auto;
+            display: grid;
+            grid-template-columns: auto auto;
+            gap: 50px 100px;
+        }
+
+        .service-card {
+            background: linear-gradient(90deg, lightblue, lightgrey);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: left;
+        }
+        .about-image img{
+            border-radius: 8px;
+            max-height:auto;
+        }
+        .about-text span{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">FO<span>LI</span>O</div>
+        <nav class="navigation">
+            <ul>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">SERVICES</a></li>
+                <li><a href="#">PORTFOLIO</a></li>
+                <li><a href="#">BLOG</a></li>
+                <li><a href="#">CONTACT</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h1><span>Hi,</span> I'm Kanishk</h1>
+            <h2>UI & UX <span>Designer</span></h2>
+            <p>Hi, nice to meet you! I'm a designer that builds your brand and grows your business.</p>
+            <button>Download</button>
+        </div>
+        <div class="hero-image">
+            <img src="D:\kanishk\kanishk\download.jpg" alt="Kanishk - UI & UX Designer">
+        </div>
+    </section>
+    <section class="services">
+        <h2>WHAT <span>WE</span> DO</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Brand Strategy</h3>
+                <ul>
+                    <li>Android/iOS App UI</li>
+                    <li>UX Research</li>
+                    <li>UI Interaction Design</li>
+                    <li>Dashboard Prototyping</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <h3>UI & UX Design</h3>
+                <ul>
+                    <li>Android/iOS App UI</li>
+                    <li>UX Research</li>
+                    <li>UI Interaction Design</li>
+                    <li>Website Prototyping</li>
+                    <li>Dashboard Prototyping</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <h3>Website Design</h3>
+                <ul>
+                    <li>Android/iOS App UI</li>
+                    <li>UX Research</li>
+                    <li>UI Interaction Design</li>
+                    <li>Website Prototyping</li>
+                    <li>Dashboard Prototyping</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <h3>Software Design</h3>
+                <ul>
+                    <li>Android/iOS App UI</li>
+                    <li>UX Research</li>
+                    <li>UI Interaction Design</li>
+                    <li>Website Prototyping</li>
+                    <li>Dashboard Prototyping</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="about">
+        <div class="about-content">
+            <div class="about-image">
+                <img src="D:\kanishk\kanishk\download.jpg" alt="Designer">
+            </div>
+            <div class="about-text">
+                <h2>LOOKING FOR <span>CREATIVE</span> DESIGNER? I CAN <span>HELP</span> YOU!</h2>
+                <ul>
+                    <li>High Quality Service</li>
+                    <li>Fast Time Delivery</li>
+                    <li>Best Price in Marketplace</li>
+                    <li>Unique Design Concept</li>
+                </ul>
+                <button>Hire Me Now</button>
+            </div>
+    </section>
+    
+</body>
+</html>

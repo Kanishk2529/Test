@@ -12,6 +12,7 @@
             background-color: #f8f8f8;
             color: #333;
         }
+
         .container {
             max-width: 960px;
             margin: 20px auto;
@@ -19,7 +20,9 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }   
+        }
+
+        
         .header {
             display: flex;
             justify-content: space-between;
@@ -27,19 +30,26 @@
             padding-bottom: 20px;
             border-bottom: 1px solid #eee;
         }
+
         .logo {
             font-size: 24px;
             font-weight: bold;
-            color: #ff7f50; 
+            color: black; 
         }
+        .logo span{
+            color: orangered;
+        }
+
         .nav-links a {
             text-decoration: none;
             color: #555;
             margin-left: 20px;
         }
+
         .nav-links a:hover {
             color: #ff7f50;
         }
+
         .auth-buttons button {
             padding: 10px 15px;
             border: none;
@@ -47,41 +57,55 @@
             cursor: pointer;
             font-weight: bold;
         }
+
         .auth-buttons button:first-child {
             background-color: transparent;
             color: #555;
         }
+
         .auth-buttons button:last-child {
-            background-color: #ff7f50;
+            background-color: orangered;
             color: white;
         }
+
+       
         .hero {
             display: flex;
             gap: 30px;
             padding: 30px 0;
             align-items: center;
         }
+
         .hero-text {
             flex: 1;
         }
+
         .hero-image {
             flex: 1;
             text-align: right;
         }
+
         .hero-image img {
             max-width: 100%;
             height: auto;
         }
+
         .hero-text h1 {
             font-size: 2.5em;
             color: #333;
             margin-bottom: 10px;
         }
+        .hero-text span{
+            color: orangered;
+
+        }
+
         .hero-text p {
             color: #666;
             line-height: 1.6;
             margin-bottom: 20px;
         }
+
         .hero-buttons button {
             padding: 12px 20px;
             border: none;
@@ -90,32 +114,94 @@
             font-weight: bold;
             margin-right: 10px;
         }
+
         .hero-buttons button:first-child {
-            background-color: #ff7f50;
+            background-color: orangered;
             color: white;
         }
+
         .hero-buttons button:last-child {
             background-color: transparent;
             color: #555;
             border: 1px solid #ccc;
-        }
+        } 
         .popular-items {
             padding: 30px 0;
             border-top: 1px solid #eee;
         }
+
         .popular-items-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
         }
-        
-        </style>  
+
+        .popular-items-header h2 {
+            font-size: 1.8em;
+            color: #333;
+            margin: 0;
+        }
+
+        .popular-items-header a {
+            text-decoration: none;
+            color: #ff7f50;
+            font-weight: bold;
+        }
+
+        .popular-items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .food-card {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .food-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .food-card-content {
+            padding: 15px;
+        }
+
+        .food-card h3 {
+            font-size: 1.2em;
+            margin-top: 0;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .food-card p {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .food-card button {
+            background-color: #ff7f50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+    </style>
 </head>
 <body>
     <div class="container">
         <header class="header">
-            <div class="logo">FoodHub</div>
+            <div class="logo">Food<span>Hub</span></div>
             <nav class="nav-links">
                 <a href="#">Home</a>
                 <a href="#">Services</a>
@@ -128,16 +214,62 @@
                 <button>Sign up</button>
             </div>
         </header>
+
         <section class="hero">
             <div class="hero-text">
                 <small>FRESH & DELICIOUS</small>
-                <h1>Delicious Meals Delivered to Your Door</h1>
-                <p>Enjoy fresh, flavorful meals made with the finest ingredients, delivered straight to your door, every time.</p>
+                <h1>Delicious Meals <span>Delivered</span> to Your Door</h1>
+                <p>Enjoy fresh, flavorful meals made with the finest ingredients,delivered straight to your door, every time.</p>
                 <div class="hero-buttons">
                     <button>Order Now</button>
                     <button>Learn More</button>
                 </div>
-            </div>   
+            </div>
+            <div class="hero-image">
+                <img src="D:\kanishk\kanishk\images (1).jpg" alt="Delicious Food">        
+            </div>
         </section>
+        <section class="popular-items">
+            <div class="popular-items-header">
+                <h2>Our Popular Items</h2>
+     
+                <a href="#">View All <span style="font-size: 1.2em;">→</span></a>
+            </div>
+            <div class="popular-items-grid">
+                <div class="food-card">
+                    <img src="D:\kanishk\kanishk\delicious-spread-pizza-burger-fries-tacos-juice-wooden-table_312502-104.avif" alt="Four Cheese Pizza">
+                    <div class="food-card-content">
+                        <h3>Four Cheese Pizza</h3>
+                        <p>Free Delivery for first order</p>
+                        <button>Order Now</button>
+                    </div>
+                </div>
+                <div class="food-card">
+                    <img src="D:\kanishk\kanishk\delicious-spread-pizza-burger-fries-tacos-juice-wooden-table_312502-104.avif" alt="Margherita Pizza">
+                    <div class="food-card-content">
+                        <h3>Margherita Pizza</h3>
+                        <p>Enjoy 20% discount on Sunday</p>
+                        <button>Order Now</button>
+                    </div>
+                </div>
+                <div class="food-card">
+                    <img src="D:\kanishk\kanishk\delicious-spread-pizza-burger-fries-tacos-juice-wooden-table_312502-104.avif" alt="Hot Dog">
+                    <div class="food-card-content">
+                        <h3>Hot Dog</h3>
+                        <p>Get 20% off on your order</p>
+                        <button>Order Now</button>
+                    </div>
+                </div>
+                <div class="food-card">
+                    <img src="D:\kanishk\kanishk\delicious-spread-pizza-burger-fries-tacos-juice-wooden-table_312502-104.avif" alt="Burger King">
+                    <div class="food-card-content">
+                        <h3>Burger King</h3>
+                        <p>Free Delivery for first order</p>
+                        <button>Order Now</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 </body>
 </html>

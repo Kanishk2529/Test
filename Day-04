@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuyMore Concept</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">BuyMore</div>
+            <div class="header-right">
+                <div class="orders">
+                    <span>37</span>
+                    <small>Last 7 days</small>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#">Dashboard</a></li>
+                        <li><a href="#">Website</a></li>
+                    </ul>
+                </nav>
+                <div class="icons">
+                    <a href="#">Cart <span>8</span></a>
+                    <a href="#">Ryana</a>
+                </div>
+            </div>
+        </header>
+
+        <aside class="sidebar">
+            <ul>
+                <li><a href="#">Popular Products</a></li>
+                <li class="active"><a href="#">Explore New</a></li>
+                <li><a href="#">Clothing and Shoes</a></li>
+                <li><a href="#">Gifts and Living</a></li>
+                <li><a href="#">Inspiration</a></li>
+                <li class="separator"></li>
+                <li><a href="#">Quick actions</a></li>
+                <li><a href="#">Request for product</a></li>
+                <li><a href="#">Add member</a></li>
+                <li class="separator"></li>
+                <li><a href="#">Last order: 37</a></li>
+                <li><a href="#">DXC Nike... new order</a></li>
+                <li><a href="#">Outerwear... order</a></li>
+                <li><a href="#">See all</a></li>
+                <li class="separator"></li>
+                <li><a href="#">Log out</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <div class="explore-header">
+                <h2>Explore</h2>
+                <div class="explore-nav">
+                    <ul>
+                        <li class="active"><a href="#">All</a></li>
+                        <li><a href="#">Man</a></li>
+                        <li><a href="#">Woman</a></li>
+                    </ul>
+                </div>
+                <div class="explore-actions">
+                    <button>Filters</button>
+                    <button>Search</button>
+                </div>
+            </div>
+
+            <div class="explore-grid">
+                <div class="explore-item promo">
+                    <div class="promo-content">
+                        <h3>GET UP TO 50% OFF</h3>
+                        <button>Get Discount</button>
+                    </div>
+                    <img src="placeholder_image.jpg" alt="Promo Image">
+                </div>
+                <div class="explore-item winter">
+                    <div class="winter-content">
+                        <h3>Winter's weekend</h3>
+                        <p>keep it casual</p>
+                    </div>
+                    <img src="placeholder_image.jpg" alt="Winter Image">
+                </div>
+                <div class="explore-item product">
+                    <button class="wishlist"></button>
+                    <img src="placeholder_image.jpg" alt="Zebra Sandal">
+                    <div class="product-info">
+                        <small>Our Picks</small>
+                        <h4>WMX Rubber Zebra sandal</h4>
+                        <span class="price">$36</span>
+                    </div>
+                </div>
+                <div class="explore-item product">
+                    <button class="wishlist"></button>
+                    <img src="placeholder_image.jpg" alt="Jogger in brown">
+                    <div class="product-info">
+                        <small>Your Choice</small>
+                        <h4>Supper Skinny jogger in brown</h4>
+                        <span class="price">$69</span>
+                    </div>
+                </div>
+                <div class="explore-item offer">
+                    <div class="offer-content">
+                        <button>Avail Offers</button>
+                    </div>
+                    <img src="placeholder_image.jpg" alt="Offer Image">
+                </div>
+                <div class="explore-item favorites">
+                    <h3>Favourites</h3>
+                    <div class="favorites-carousel">
+                        <button class="prev"></button>
+                        <div class="favorites-items">
+                            <img src="placeholder_image.jpg" alt="Favorite 1">
+                            <img src="placeholder_image.jpg" alt="Favorite 2">
+                            <img src="placeholder_image.jpg" alt="Favorite 3">
+                        </div>
+                        <button class="next"></button>
+                    </div>
+                    <a href="#">See All</a>
+                </div>
+                <div class="explore-item fashion">
+                    <div class="fashion-content">
+                        <h3>Bring Bold Fashion</h3>
+                        <p>Layers on Layers</p>
+                    </div>
+                    <img src="placeholder_image.jpg" alt="Fashion Image">
+                </div>
+                <div class="explore-item hooded">
+                    <img src="placeholder_image.jpg" alt="Hooded Image">
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

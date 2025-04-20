@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Checkout</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+            background-color: #f7f7f7;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            display: flex;
+            max-width: 1200px;
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+        .left-panel {
+            flex: 2;
+            padding-right: 30px;
+            border-right: 1px solid #eee;
+        }
+        .left-panel span{
+            color:red;
+        }
+
+        .right-panel {
+            flex: 1;
+            padding-left: 30px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #555;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #777;
+            font-size: 0.9em;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="number"],
+        select {
+            width: calc(100% - 12px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .form-row > div {
+            flex: 1;
+        }
+
+        .payment-method {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .payment-method input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .payment-icons img {
+            height: 24px;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+
+        .order-details {
+            margin-bottom: 20px;
+        }
+
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px dotted #eee;
+        }
+
+        .item-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .item-info img {
+            width: 40px;
+            height: 40px;
+            border-radius:50px;
+            object-fit: cover;
+        }
+
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .quantity-control button {
+            background: none;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 5px 8px;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+
+        .quantity-control span {
+            font-size: 0.9em;
+            color: #555;
+            min-width: 20px;
+            text-align: center;
+        }
+
+        .remove-item {
+            background: none;
+            border: none;
+            color: #aaa;
+            cursor: pointer;
+            font-size: 1.2em;
+            padding: 0;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+
+        .summary-row.total {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 2px solid #eee;
+        }
+
+        button.purchase-button {
+            background-color: #5cb85c;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            width: 100%;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        button.purchase-button:hover {
+            background-color: #4cae4c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-panel">
+            <h1>Ch<span>e</span>cko<span>u</span>t</h1>
+            <h2>Personal Information</h2>
+            <div class="form-group form-row">
+                <div>
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" name="firstName">
+                </div>
+                <div>
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" name="lastName">
+                </div>
+            </div>
+            <div class="form-group form-row">
+                <div>
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email">
+                </div>
+            </div>
+
+            <h2>Delivery Details</h2>
+            <div class="form-group form-row">
+                <div>
+                    <label for="country">Country / Region</label>
+                    <select id="country" name="country">
+                        <option value="UK">United Kingdom (UK)</option>
+                        <option value="USA">United States (USA)</option>
+                        <option value="CA">Canada</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="city">Town / City</label>
+                    <input type="text" id="city" name="city" value="London">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="street">Street</label>
+                <input type="text" id="street" name="street">
+            </div>
+            <div class="form-group">
+                <label for="postcode">Postcode</label>
+                <input type="text" id="postcode" name="postcode">
+            </div>
+            <div class="form-group form-row">
+                <div>
+                    <label for="packaging">Packaging Type</label>
+                    <select id="packaging" name="packaging">
+                        <option value="without">Without plastic</option>
+                        <option value="plastic">By plastic</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="shipping">Shipping Option</label>
+                    <select id="shipping" name="shipping">
+                        <option value="courier">By courier</option>
+                        <option value="standard">Standard delivery</option>
+                    </select>
+                </div>
+            </div>
+
+            <h2>Payment</h2>
+            <div class="form-group">
+                <div class="payment-method">
+                    <input type="radio" id="applepay" name="payment" value="applepay">
+                    <label for="applepay">Apple Pay</label>
+                    </div>
+                <div class="payment-method">
+                    <input type="radio" id="paypal" name="payment" value="paypal">
+                    <label for="paypal">PayPal</label>
+                    </div>
+                <div class="payment-method">
+                    <input type="radio" id="creditcard" name="payment" value="creditcard" checked>
+                    <label for="creditcard">Credit or debit card</label>
+                    </div>
+            </div>
+            <div class="form-group form-row">
+                <div>
+                    <label for="cardNumber">Card Number</label>
+                    <input type="text" id="cardNumber" name="cardNumber">
+                </div>
+                <div>
+                    <label for="expiryDate">Expiration Date</label>
+                    <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY">
+                </div>
+                <div>
+                    <label for="cvv">CVV Code</label>
+                    <input type="number" id="cvv" name="cvv" size="3">
+                </div>
+            </div>
+        </div>
+        <div class="right-panel">
+            <h2>Your order</h2>
+            <div class="order-details">
+                <div class="order-item">
+                    <div class="item-info">
+                        <img src="D:\kanishk\kanishk\download.jpg" alt="Jerky persimmon">
+                        <span>Jerky persimmon</span>
+                        <div class="quantity-control">
+                            <button>-</button>
+                            <span>1 kg</span>
+                            <button>+</button>
+                        </div>
+                    </div>
+                    <span>$8.60</span>
+                    <button class="remove-item">×</button>
+                </div>
+                <div class="order-item">
+                    <div class="item-info">
+                        <img src="D:\kanishk\kanishk\download.jpg" alt="Macadamia nuts">
+                        <span>Macadamia in the shell</span>
+                        <div class="quantity-control">
+                            <button>-</button>
+                            <span>2 kg</span>
+                            <button>+</button>
+                        </div>
+                    </div>
+                    <span>$28.00</span>
+                    <button class="remove-item">×</button>
+                </div>
+                <div class="order-item">
+                    <div class="item-info">
+                        <img src="D:\kanishk\kanishk\download.jpg" alt="Spiced nuts">
+                        <span>Spiced nuts</span>
+                        <div class="quantity-control">
+                            <button>-</button>
+                            <span>500g</span>
+                            <button>+</button>
+                        </div>
+                    </div>
+                    <span>$7.20</span>
+                    <button class="remove-item">×</button>
+                </div>
+                <div class="order-item">
+                    <div class="item-info">
+                        <img src="D:\kanishk\kanishk\download.jpg" alt="Banana">
+                        <span>Banana</span>
+                        <div class="quantity-control">
+                            <button>-</button>
+                            <span>4 kg</span>
+                            <button>+</button>
+                        </div>
+                    </div>
+                    <span>$5.70</span>
+                    <button class="remove-item">×</button>
+                </div>
+                <div class="order-item">
+                    <div class="item-info">
+                        <img src="D:\kanishk\kanishk\download.jpg" alt="Kiwifruit">
+                        <span>Premium kiwifruit</span>
+                        <div class="quantity-control">
+                            <button>-</button>
+                            <span>1 kg</span>
+                            <button>+</button>
+                        </div>
+                    </div>
+                    <span>$4.00</span>
+                    <button class="remove-item">×</button>
+                </div>
+                <div class="order-item">
+                    <div class="item-info">
+                        <img src="D:\kanishk\kanishk\download.jpg" alt="Orange">
+                        <span>Orange</span>
+                        <div class="quantity-control">
+                            <button>-</button>
+                            <span>2 kg</span>
+                            <button>+</button>
+                        </div>
+                    </div>
+                    <span>$6.80</span>
+                    <button class="remove-item">×</button>
+                </div>
+            </div>
+            <div class="summary-row">
+                <span>Subtotal:</span>
+                <span>$60.30</span>
+            </div>
+            <div class="summary-row">
+                <span>Delivery:</span>
+                <span>$8.20</span>
+            </div>
+            <div class="summary-row total">
+                <span>Total:</span>
+                <span>$68.50</span>
+            </div>
+            <button class="purchase-button">Purchase</button>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students Journal</title>
+    <style>
+        body {
+    font-family: sans-serif;
+    margin: 0;
+    display: flex;
+}
+
+.sidebar {
+    background-color: #2c3e50;
+    color: white;
+    width: 200px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.navigation {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.navigation li {
+    margin-bottom: 10px;
+}
+
+.navigation li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.navigation li.active a{
+    background-color: aqua;
+}
+.navigation li a:hover {
+    background-color: #34495e;
+}
+
+.logout {
+    margin-top: auto;
+}
+
+.logout a {
+    color: white;
+    text-decoration: none;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.breadcrumbs {
+    color: #555;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar {
+    display: flex;
+    margin-right: 20px;
+}
+
+.search-bar input[type="text"] {
+    padding: 8px;
+    border: 1px solid black;
+    border-radius: 5px 0 0 5px;
+}
+
+.search-bar button {
+    padding: 8px 12px;
+    background-color: #ddd;
+    border: 1px solid #ccc;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+.icons span {
+    margin-left: 10px;
+  
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.user-profile span {
+    margin-left: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    color: white;
+    border-radius: 50%;
+    background-color: black;
+}
+
+main {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    overflow-x: auto; /* For potential horizontal scrolling */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    background-color: #f9f9f9;
+    font-weight: bold;
+}
+
+tbody tr:hover {
+    background-color: #f5f5f5;
+} 
+
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    color: #777;
+}
+
+.pagination div span {
+    margin-left: 10px;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.pagination div span:hover {
+    background-color: #eee;
+}
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">SMART</div>
+        <ul class="navigation">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">My classes</a></li>
+            <li class="active"><a href="#">Students</a></li>
+            <li><a href="#">Schedule</a></li>
+            <li><a href="#">Message</a></li>
+            <li><a href="#">Settings</a></li>
+        </ul>
+        <div class="logout"><a href="#">Log out</a></div>
+    </div>
+    <div class="main-content">
+        <header>
+            <div class="breadcrumbs">Students > Journal</div>
+            <div class="actions">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search">
+                    <button>Q</button>
+                </div>
+               
+                <div class="user-profile">
+                    <span>User</span>
+                </div>
+            </div>
+        </header>
+        <main>
+            <table>
+                <thead>
+                    <tr>
+                        <th><input type="checkbox"></th>
+                        <th>Name</th>
+                        <th>Group</th>
+                        <th>Homework</th>
+                        <th>Attendance</th>
+                        <th>Projects</th>
+                        <th>Grade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>Michael Johnson</td>
+                        <td>Data Scientists-2</td>
+                        <td>16/28</td>
+                        <td>16/28</td>
+                        <td>9/12</td>
+                        <td>84/100</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>Emily Davis</td>
+                        <td>Data Scientists-2</td>
+                        <td>17/28</td>
+                        <td>17/28</td>
+                        <td>8/12</td>
+                        <td>74/100</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>Sophia Smith</td>
+                        <td>Data Scientists-2</td>
+                        <td>17/28</td>
+                        <td>16/28</td>
+                        <td>8/12</td>
+                        <td>76/100</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>Steven Smith</td>
+                        <td>Data Scientists-2</td>
+                        <td>17/28</td>
+                        <td>16/28</td>
+                        <td>9/12</td>
+                        <td>79/100</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>Mafia</td>
+                        <td>Data Scientists-2</td>
+                        <td>17/28</td>
+                        <td>16/28</td>
+                        <td>8/12</td>
+                        <td>73/100</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>jadega</td>
+                        <td>Data Scientists-2</td>
+                        <td>17/28</td>
+                        <td>16/28</td>
+                        <td>7/12</td>
+                        <td>71/100</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>Russel</td>
+                        <td>Data Scientists-2</td>
+                        <td>17/28</td>
+                        <td>16/28</td>
+                        <td>10/12</td>
+                        <td>77/100</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>Sudharsan</td>
+                        <td>Data Scientists-2</td>
+                        <td>17/28</td>
+                        <td>16/28</td>
+                        <td>7/12</td>
+                        <td>76/100</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>Dhanush</td>
+                        <td>Data Scientists-2</td>
+                        <td>17/28</td>
+                        <td>16/28</td>
+                        <td>8/12</td>
+                        <td>73/100</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>Santhosh</td>
+                        <td>Data Scientists-2</td>
+                        <td>17/28</td>
+                        <td>16/28</td>
+                        <td>6/12</td>
+                        <td>72/100</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>Kanishk</td>
+                        <td>Data Scientists-2</td>
+                        <td>17/28</td>
+                        <td>16/28</td>
+                        <td>9/12</td>
+                        <td>74/100</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>Dinesh kumar</td>
+                        <td>Data Scientists-2</td>
+                        <td>17/28</td>
+                        <td>16/28</td>
+                        <td>8/12</td>
+                        <td>78/100</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="pagination">
+                <span>1-12 of 84 Items</span>
+                <div>
+                    <span>&lt;</span>
+                    <span>12</span>
+                    <span>&gt;</span>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

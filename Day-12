@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Ticket Booking Search Results</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            display: flex;
+            max-width: 1200px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .sidebar {
+            width: 280px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-right: 1px solid #eee;
+            box-sizing: border-box;
+        }
+
+        .sidebar h2 {
+            margin-top: 0;
+            color: #333;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        .filters-group {
+            margin-bottom: 20px;
+        }
+
+        .filters-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-size: 0.95em;
+            font-weight: bold;
+        }
+
+        .filter-option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 6px;
+        }
+
+        .filter-option input[type="radio"],
+        .filter-option input[type="checkbox"] {
+            margin-right: 8px;
+        }
+
+        .filter-option label {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .reset-all {
+            color: #007bff;
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+            display: block;
+            text-align: left;
+        }
+
+        .reset-all:hover {
+            text-decoration: underline;
+        }
+
+        .results-container {
+            flex-grow: 1;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .results-header {
+            display: flex;
+            align-items: center;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .sort-by {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+            font-size: 0.9em;
+            color: #777;
+        }
+
+        .sort-by label {
+            margin-right: 8px;
+        }
+
+        .sort-by button {
+            background: none;
+            border: none;
+            color: #007bff;
+            padding: 0;
+            margin-left: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+
+        .sort-by button:hover {
+            text-decoration: underline;
+        }
+
+        .train-info {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            padding: 15px;
+        }
+
+        .train-main-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
+        }
+
+        .train-name-number {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .train-schedule-days {
+            color: #777;
+            font-size: 0.9em;
+        }
+
+        .view-schedule {
+            color: #007bff;
+            font-size: 0.9em;
+            cursor: pointer;
+        }
+
+        .view-schedule:hover {
+            text-decoration: underline;
+        }
+
+        .departure-arrival-time {
+            color: #222;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .departure-arrival-station {
+            color: #555;
+            font-size: 0.9em;
+        }
+
+        .train-duration {
+            color: #555;
+            font-size: 0.9em;
+            margin-left: 10px;
+        }
+
+        .class-availability-header {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 10px;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            color: #555;
+            font-size: 0.9em;
+            text-align: center;
+        }
+
+        .class-availability-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 10px;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            align-items: center;
+        }
+
+        .class-name {
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+        }
+
+        .availability-status {
+            color: #dc3545;
+            font-size: 0.85em;
+            text-align: center;
+        }
+
+        .book-button {
+            background-color: #f8f9fa;
+            color: #007bff;
+            border: 1px solid #007bff;
+            border-radius: 4px;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-size: 0.9em;
+            text-align: center;
+        }
+
+        .book-button:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .availability-chance {
+            color: #ffc107;
+            font-size: 0.85em;
+            text-align: center;
+        }
+
+        .no-booking {
+            color: #6c757d;
+            font-size: 0.85em;
+            text-align: center;
+        }
+
+        .show-availability {
+            color: #28a745;
+            font-size: 0.9em;
+            cursor: pointer;
+            margin-top: 10px;
+            display: block;
+            text-align: right;
+        }
+
+        .show-availability:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>FILTERS</h2>
+            <button class="reset-all">RESET ALL</button>
+
+            <div class="filters-group">
+                <label>Quota</label>
+                <div class="filter-option">
+                    <input type="radio" id="general" name="quota" checked>
+                    <label for="general">General</label>
+                </div>
+                <div class="filter-option">
+                    <input type="radio" id="tatkal" name="quota">
+                    <label for="tatkal">Tatkal</label>
+                </div>
+                <div class="filter-option">
+                    <input type="radio" id="ladies" name="quota">
+                    <label for="ladies">Ladies</label>
+                </div>
+                <div class="filter-option">
+                    <input type="radio" id="senior-citizen" name="quota">
+                    <label for="senior-citizen">Senior Citizen/Lower Berth</label>
+                </div>
+            </div>
+
+            <div class="filters-group">
+                <label>Origin Station</label>
+                <div class="filter-option">
+                    <input type="checkbox" id="nzm">
+                    <label for="nzm">NZM</label>
+                </div>
+                <div class="filter-option">
+                    <input type="checkbox" id="ndls">
+                    <label for="ndls">NDLS</label>
+                </div>
+                <div class="filter-option">
+                    <input type="checkbox" id="dee">
+                    <label for="dee">DEE</label>
+                </div>
+                <div class="filter-option">
+                    <input type="checkbox" id="szm">
+                    <label for="szm">SZM</label>
+                </div>
+                <div class="filter-option">
+                    <input type="checkbox" id="andi">
+                    <label for="andi">ANDI</label>
+                </div>
+            </div>
+
+            <div class="filters-group">
+                <label>Destination Station</label>
+                <div class="filter-option">
+                    <input type="checkbox" id="mmct" checked>
+                    <label for="mmct">MMCT</label>
+                </div>
+                <div class="filter-option">
+                    <input type="checkbox" id="csmt">
+                    <label for="csmt">CSMT</label>
+                </div>
+                <div class="filter-option">
+                    <input type="checkbox" id="pnvl">
+                    <label for="pnvl">PNVL</label>
+                </div>
+                <div class="filter-option">
+                    <input type="checkbox" id="bdts">
+                    <label for="bdts">BDTS</label>
+                </div>
+                <div class="filter-option">
+                    <input type="checkbox" id="ltt">
+                    <label for="ltt">LTT</label>
+                </div>
+            </div>
+        </div>
+        <div class="results-container">
+            <div class="results-header">
+                <div class="sort-by">
+                    <label>Sort by:</label>
+                    <button>Departure <svg style="width:0.8em;height:0.8em;vertical-align:middle" viewBox="0 0 24 24"><path fill="currentColor" d="M7 14l5-5 5 5z"/></svg></button>
+                    <button>Duration</button>
+                    <button>Arrival</button>
+                </div>
+            </div>
+
+            <div class="train-info">
+                <div class="train-main-info">
+                    <div>
+                        <span class="train-name-number">12904 - GOLDEN TEMPLE M</span>
+                        <div style="font-size: 0.9em; color: #555;">
+                            <span class="departure-arrival-time">04:00</span>
+                            <span class="departure-arrival-station">NZM</span>
+                            <span class="train-duration">19h 35m</span>
+                            <span class="departure-arrival-time">23:35</span>
+                            <span class="departure-arrival-station">MMCT</span>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="train-schedule-days">S M T W T F S</span>
+                        <a href="#" class="view-schedule">View Schedule</a>
+                    </div>
+                </div>
+                <div class="class-availability-header">
+                    <div></div>
+                    <div class="class-name">2A - Second AC</div>
+                    <div class="class-name">3A - Third AC</div>
+                    <div class="class-name">SL - Sleeper</div>
+                    <div class="class-name">1A - First AC</div>
+                </div>
+                <div class="class-availability-row">
+                    <div style="font-size: 0.9em; color: #555;">Tue, 29 Apr</div>
+                    <div class="availability-chance">RLWL22/WL17<br>41% Chance</div>
+                    <div class="book-button">BOOK ₹ 2335</div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="class-availability-row">
+                    <div style="font-size: 0.9em; color: #555;">Wed, 30 Apr</div>
+                    <div class="availability-status">REGRET<br>No More Booking</div>
+                    <div class="book-button">BOOK ₹ 2335</div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="class-availability-row">
+                    <div style="font-size: 0.9em; color: #555;">Thu, 01 May</div>
+                    <div class="availability-chance">RLWL27/WL16<br>48% Chance</div>
+                    <div class="book-button">BOOK ₹ 2335</div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="class-availability-row">
+                    <div style="font-size: 0.9em; color: #555;">Fri, 02 May</div>
+                    <div class="availability-chance">RLWL25/WL13<br>53% Chance</div>
+                    <div class="book-button">BOOK ₹ 2335</div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="class-availability-row">
+                    <div style="font-size: 0.9em; color: #555;">Sat, 03 May</div>
+                    <div class="availability-chance">RLWL12/WL11<br>56% Chance</div>
+                    <div class="book-button">BOOK ₹ 2335</div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="class-availability-row">
+                    <div style="font-size: 0.9em; color: #555;">Sun, 04 May</div>
+                    <div class="availability-status">REGRET<br>No More Booking</div>
+                    <div class="book-button">BOOK ₹ 2335</div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <a href="#" class="show-availability">Hide 6 days availability</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
